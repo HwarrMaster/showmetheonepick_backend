@@ -8,6 +8,7 @@ router.get("/", async (req, res, next) => {
   
   const NOTION_ID = "fe39b1a16a6743689b166fc835fe0034";
   const URL = `https://api.notion.com/v1/databases/${NOTION_ID}/query`;
+
   const result = await axios.post(
     URL,
     {},
@@ -20,6 +21,9 @@ router.get("/", async (req, res, next) => {
       },
     }
   );
+  
+  console.log('result', result);
+
   res.status(200);
   res.json(result.data);
 });
