@@ -4,8 +4,6 @@ const axios = require("axios");
 const crypto = require("crypto");
 
 router.get("/", async (req, res, next) => {
-    console.log("/notion 접속");
-
     const NOTION_ID = "fe39b1a16a6743689b166fc835fe0034";
     const URL = `https://api.notion.com/v1/databases/${NOTION_ID}/query`;
 
@@ -25,9 +23,7 @@ router.get("/", async (req, res, next) => {
         .catch((error) => {
             console.log(error);
         });
-
-    console.log("result", result);
-
+    
     res.status(200);
     res.json(result.data);
 });
